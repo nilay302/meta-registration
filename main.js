@@ -1,107 +1,111 @@
 import * as THREE from 'three'
-import { Color } from 'three';
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
-//sizes
-const sizes = {
-  width:window.innerWidth,
-  height:window.innerHeight
-}
-// Scene
-const scene = new THREE.Scene();
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 
-// // Geometry 
-// const geometry = new THREE.BoxGeometry(2,2,2);
+const scene = new THREE.Scene()
+scene.background = new THREE.Color('rgb(0,7,50)');
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+)
+camera.position.z = 0;
+camera.position.x = 1;
+camera.position.y = 0;
+camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+var particleGeo = new THREE.BufferGeometry();
+	var particleMat = new THREE.PointsMaterial({
+		color: 'rgb(255, 255, 255)',
+		size: 1,
+		map: new THREE.TextureLoader().load('./particle.jpg'),
+		transparent: true,
+		blending: THREE.AdditiveBlending,
+		depthWrite: false
+	});
+    var particleCount = 20000;
+	var particleDistance = 200;
+    const vertices = [];
+	for (var i=0; i<particleCount; i++) {
+		var posX = (Math.random() - 0.5) * particleDistance;
+		var posY = (Math.random() - 0.5) * particleDistance;
+		var posZ = (Math.random() - 0.5) * particleDistance;
+        vertices.push(posX,posY,posZ);
+	}
+    particleGeo.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+	var particleSystem = new THREE.Points(
+		particleGeo,
+		particleMat
+	);
+	particleSystem.name = 'particleSystem';
+
+	scene.add(particleSystem);
 
 
-// // Materails
-// const material = new THREE.MeshStandardMaterial({
-//   color:"red",
-// })
+const renderer = new THREE.WebGLRenderer()
+renderer.setSize(window.innerWidth, window.innerHeight)
+document.body.appendChild(renderer.domElement)
 
-// const mesh = new THREE.Mesh(geometry,material);
-
-// scene.add(mesh)
-
-//adding camera 
-const camera = new THREE.PerspectiveCamera(45,sizes.width/sizes.height);
-camera.position.z = 14
-scene.add(camera)
-
-const light = new THREE.PointLight(0xffffff,1,100);
-const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(ambientLight)
-light.position.set(0,10,10);
-scene.add(light)
-
-// docker-container
-const dockerTexture = new THREE.TextureLoader().load("docker1.webp");
-const docker = new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshBasicMaterial({map:dockerTexture}));
-docker.position.set(7,-2,1 )
-scene.add(docker);
-
-//renderer
-const canvas = document.querySelector(".webgl");
-const renderer = new THREE.WebGL1Renderer({canvas});
-renderer.setSize(sizes.width,sizes.height)
-renderer.render(scene,camera);
-renderer.setPixelRatio(2);
-const controls = new OrbitControls(camera,canvas)
+const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 controls.enablePan=false
 controls.enableZoom=false
-// controls.autoRotate = true
-controls.autoRotateSpeed = 10
-
-
-
-//resizes
-window.addEventListener('resize',()=>{
-  sizes.width = window.innerWidth
-  sizes.height = window.innerHeight
- 
-  camera.aspect = sizes.width/sizes.height
-  camera.updateProjectionMatrix();
-  renderer.setSize(sizes.width,sizes.height)
-})
-
-// space background
-const spcaeTexture = new THREE.TextureLoader().load('space5.png')
-scene.background = spcaeTexture;
-
-
-// Text-commands
-// const loader = new FontLoader();
-
-// loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-
-// 	const geometry = new TextGeometry( 'Hello three.js!', {
-// 		font: font,
-// 		size: 80,
-// 		height: 5,
-// 		curveSegments: 12,
-// 		bevelEnabled: true,
-// 		bevelThickness: 10,
-// 		bevelSize: 8,
-// 		bevelOffset: 0,
-// 		bevelSegments: 5
-// 	} );
-
-//   const textMaterial = new THREE.MeshStandardMaterial({color:0xffffff});
-//   const textMesh = new THREE.Mesh(geometry,textMaterial);
-//   // scene.add(textMesh);
-
-
-// } );
-
-
-
-
-const loop = ()=>{
-  controls.update()
-  docker.rotation.x += -0.006
-  renderer.render(scene,camera);
-  window.requestAnimationFrame(loop);
+window.addEventListener('resize', onWindowResize, false)
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    render()
 }
 
-loop();
+
+function animate() {
+    requestAnimationFrame(animate)
+    // var particleSystems = scene.getObjectByName('particleSystem');
+	particleSystem.rotation.y += 0.001;
+
+    // while(camera.position.x <10){
+    //     camera.position.x-=0.1;
+    // }
+    // particleGeo.setAttribute('position',new THREE.Float32BufferAttribute( rotation, 3 )  )
+	// particleSystem.geometry.forEach(function(particle) {
+	// 	particle.x += (Math.random() - 1) * 0.1;
+	// 	particle.y += (Math.random() - 0.75) * 0.1;
+	// 	particle.z += (Math.random()) * 0.1;
+
+	// 	if (particle.x < -50) {
+	// 		particle.x = 50;
+	// 	}
+
+	// 	if (particle.y < -50) {
+	// 		particle.y = 50;
+	// 	}
+
+	// 	if (particle.z < -50) {
+	// 		particle.z = 50;
+	// 	}
+
+	// 	if (particle.z > 50) {
+	// 		particle.z = -50;
+	// 	}
+	// });
+	// particleSystem.geometry.verticesNeedUpdate = true;
+    render()
+    
+
+}
+
+function render() {
+    renderer.render(scene, camera)
+}
+
+animate()
+
+
+
+// // docker-container
+// const dockerTexture = new THREE.TextureLoader().load("docker1.webp");
+// const docker = new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshBasicMaterial({map:dockerTexture}));
+// docker.position.set(7,-2,1 )
+// scene.add(docker);
