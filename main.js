@@ -4,6 +4,7 @@ import {FontLoader} from 'three/examples/jsm/loaders/FontLoader.js'
 import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry.js'
 import { GUI } from 'dat.gui'
 import Stats from 'three/examples/jsm/libs/stats.module'
+// import {sceneTwo} from '/title.js'
 const scene = new THREE.Scene()
 // scene.add(new THREE.AxesHelper(5))
 scene.background = new THREE.Color('rgb(0,3,30)');
@@ -222,7 +223,14 @@ loader.load( './Star_Jedi_Regular.json', function ( font ) {
 
 } );
 
+// tiitle
 
+
+
+
+
+
+// scene.add(titlePivot);
 scene.add(pivot)
 const stats = Stats()
 document.body.appendChild(stats.dom)
@@ -253,11 +261,14 @@ var particleGeo = new THREE.BufferGeometry();
 
 	scene.add(particleSystem);
 
-
-const renderer = new THREE.WebGLRenderer()
+const canvas = document.getElementById('bg');
+canvas.style.zIndex = -1
+const renderer = new THREE.WebGLRenderer({canvas})
 renderer.setSize(window.innerWidth, window.innerHeight)
-document.body.appendChild(renderer.domElement)
+// document.body.appendChild(renderer.domElement)
 
+// renderer.render(sceneTwo,camera);
+renderer.render(scene,camera);
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 controls.enablePan=false
