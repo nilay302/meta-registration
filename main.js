@@ -18,7 +18,7 @@ camera.position.z =0;
 camera.position.x = -0.5;
 camera.position.y = 0;
 camera.lookAt(new THREE.Vector3(0, 0, 0));
-const gui = new GUI()
+// const gui = new GUI()
 var pivot = new THREE.Object3D();
 const loader = new FontLoader();
 
@@ -217,7 +217,7 @@ loader.load( './Star_Jedi_Regular.json', function ( font ) {
 	// textFolder.add(TextMesh.rotation,'y', -Math.PI * 2, Math.PI * 2);
 	// textFolder.add(TextMesh.rotation,'z', -Math.PI * 2, Math.PI * 2);
 
-	textFolder.open()
+	// textFolder.open()
 	
  
 
@@ -232,8 +232,8 @@ loader.load( './Star_Jedi_Regular.json', function ( font ) {
 
 // scene.add(titlePivot);
 scene.add(pivot)
-const stats = Stats()
-document.body.appendChild(stats.dom)
+// const stats = Stats()
+// document.body.appendChild(stats.dom)
 var particleGeo = new THREE.BufferGeometry();
 	var particleMat = new THREE.PointsMaterial({
 		color: 'rgb(255, 255, 255)',

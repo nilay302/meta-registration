@@ -1,27 +1,77 @@
-body {
-    overflow: hidden;
+*{
+     padding: 0px;
     margin: 0px;
+   
 }
 #bg{
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
+    height: 100%;
+    width: 100%;
 }
-.app{
+
+
+.container
+{
+        position: initial;
+        z-index: 2;
+    width: 100%;
+
+    /* overflow-y: auto; */
+}
+
+.my-navbar{
+    width:100%;
     position: absolute;
-    z-index: 0;
-}
-#title-three{
-    position: relative;
+    z-index: 2;
+    background-color: rgb(14, 15, 59);
+    background-color: transparent;
+    height: 5rem;
     top: 0;
-    left: 0;
-    z-index: 0;
+    margin-bottom: 1rem;
+    
 }
-#form{
+
+.logo{
     position: absolute;
-    height: 200px;
-    width: 200px;
-    border: 10px solid red;
+    z-index: 4;
+    height: 10rem;
+    width: 10rem;
+    margin-left: 4rem;
+    margin-top: -1.5rem;
+    /* margin-right: 2rem; */
+
+}
+.content{
+    height: 20rem;
+    width: 50rem;
+    /* background-color: red; */
+    color: wheat;
+    margin-top: 12rem;
+    margin-inline: 18rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.myBtn{
+    margin-top: 7.5rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    width: 9rem;
+    /* background-color: yellow; */
+}
+.content-one{
+    margin-top: 8rem;
+
+}
+.title{
+    margin-left: 60rem;
+    /* height: 30rem; */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
     color: white;
-  }
+    margin-right: 25rem;
+}
