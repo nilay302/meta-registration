@@ -13,14 +13,7 @@
 }
 
 
-.container
-{
-        position: initial;
-        z-index: 2;
-    width: 100%;
 
-    /* overflow-y: auto; */
-}
 
 .my-navbar{
     width:100%;
@@ -40,31 +33,33 @@
     height: 10rem;
     width: 10rem;
     margin-left: 4rem;
-    margin-top: -1.5rem;
+    margin-top: -3.9rem;
     /* margin-right: 2rem; */
 
 }
 .content{
+    position: fixed;
     height: 20rem;
     width: 50rem;
     /* background-color: red; */
     color: wheat;
-    margin-top: 12rem;
+    /* margin-top: 32rem; */
+    margin-top: 400px;
     margin-inline: 18rem;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     text-align: center;
 }
 .myBtn{
-    margin-top: 7.5rem;
+    margin-top: 4.2rem;
     margin-bottom: 1rem;
     height: 3rem;
     width: 9rem;
     /* background-color: yellow; */
 }
-.content-one{
-    margin-top: 8rem;
 
+.text-meta{
+    font-size: 2rem;
 }
 .title{
     margin-left: 60rem;
