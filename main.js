@@ -287,7 +287,7 @@ function animate() {
 	particleSystem.rotation.y += 0.001;
 	pivot.rotation.y -= 0.00450;
     render()
-	stats.update()
+	// stats.update()
 
 }
 
