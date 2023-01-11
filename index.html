@@ -5,48 +5,42 @@
     <link rel="stylesheet" href="./index.css" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
     <title>Meta2K23</title>
   </head>
   <body>
-    <canvas id="bg"></canvas>
-   
-
-    <div class="my-container">
-
-      <nav class="navbar navbar-expand-lg my-navbar">
-        <a  href="#">
-          <img src="WLUG_LOGO.png" alt="" class="logo"/>
-        </a>
-        
-        <h1 class="title">Metamorphosis</h1>
-      </nav>
-    
-     
-        <section class="content">
-            <div class="content-one">
-                <p class="text-meta">Metamorphosis bringing you  ooprtunity to learn docker and go lang.Metamorphosis bringing you  ooprtunity to learn docker and go lang
-                  Metamorphosis bringing you  ooprtunity to learn docker and go lang
-                  Metamorphosis bringing you  ooprtunity to learn docker and go lang </p>
-                  <!-- <button type="button" class="btn btn-dark myBtn">Register</button> -->
-                  <button class="pushable myBtn">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front">
-                      Push me
-                    </span>
-                  </button>
-                </div>
-        </section>
-     
+    <div class="logo-wlug">
+      <img class="logo" src="./WLUG_LOGO.png" alt="logo"/>
     </div>
-
-
+    <div class="container">
+      <div class="content">
+        <h1>Meta <span class="morphosis">Morphosis</span><br/><span class="span-2023">2023</span></h1>
+        <p>something in short about meta..wlug blah<br/>
+          <button  class="button-64" role="button"><span class="text">Register Now</span></button>
+        </p>
+      </div>
+    </div>
+    <canvas id="bg"></canvas>  
     
-    <!-- <script type="module" src="/title.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/CSSRulePlugin.min.js" integrity="sha512-TJiE9joKYXjdf5nd0Kkzqt9QOYfp5Hk5W/PaeRmpOd7HYBVdSqpTxJezbfLzJnPrS7HGnalR54WO/hbppgDgkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script> 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>  -->
+<script>
+
+  const content = CSSRulePlugin.getRule('.content:before')
+  const h1 = document.querySelector('h1')
+  const p = document.querySelector('p')
+  const t1 = gsap.timeline()
+
+  t1.from(content, {delay:.5,duration:4, cssRule:{scaleX: 0}})
+  t1.to(h1,{duration:2, clipPath:'polygon(0 0,100% 0,100% 100%, 0% 100%)',y:'30px'},'-=3')
+  t1.to(p,{duration:4, clipPath:'polygon(0 0,100% 0,100% 100%, 0% 100%)',y:'30px'},'-=2')
+
+
+</script>
 </body>
 </html>
