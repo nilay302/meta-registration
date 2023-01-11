@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import {FontLoader} from 'three/examples/jsm/loaders/FontLoader.js'
 import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry.js'
 import { GUI } from 'dat.gui'
@@ -269,10 +269,10 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 
 // renderer.render(sceneTwo,camera);
 renderer.render(scene,camera);
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
-controls.enablePan=false
-controls.enableZoom=false
+// const controls = new OrbitControls(camera, renderer.domElement)
+// controls.enableDamping = true
+// controls.enablePan=false
+// controls.enableZoom=false
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
