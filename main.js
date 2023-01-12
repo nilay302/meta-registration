@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
 )
 camera.position.z =25;
 camera.position.x = 0;
-camera.position.y = 45;
+camera.position.y = 50;
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 // const gui = new GUI()
 var pivot = new THREE.Object3D();
@@ -123,7 +123,7 @@ function animate() {
 		// particleSystem.rotation.y = -mouseX * (elapsedTime*0.00008)
 	}
 	gsap.to(camera.position, {
-		duration: 7,
+		duration: 8,
 		y: 30,
 		z:15,
 		ease: 'circ.out',
