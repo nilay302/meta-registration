@@ -26,11 +26,11 @@
       </div>
       <div class="content">
         <img class="meta-logo" src="./Meta_Logo_1.png" />
-        <p>The "Metamorphosis" is an annual Mega-Event organized by the Walchand Linux Users' Group.</br>
+        <!-- <p>The "Metamorphosis" is an annual Mega-Event organized by the Walchand Linux Users' Group.</br>
           This year, event will feature sessions on Docker and Go Lang,</br>
-           two popular technologies in the field of containerization and programming respectively.<br />
+           two popular technologies in the field of containerization and programming respectively.<br /> -->
           <a style="text-decoration: none;" href="http://meta2k23.vercel.app"><button class="button-64" role="button"><span class="text">Register Now</span></button></a>
-        </p>
+        <!-- </p> -->
       </div>
       <div class="lorem">
         <a class="links" href="https://www.linkedin.com/company/wlug-club/"><i class="fa-lg fa-brands fa-linkedin"></i></a>
@@ -54,23 +54,20 @@
     integrity="sha512-TJiE9joKYXjdf5nd0Kkzqt9QOYfp5Hk5W/PaeRmpOd7HYBVdSqpTxJezbfLzJnPrS7HGnalR54WO/hbppgDgkw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="/main.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>  -->
   <script>
 
     const content = CSSRulePlugin.getRule('.content:before')
     const img = document.getElementsByClassName('meta-logo')
     const h1 = document.querySelector('img')
     const h2 = document.querySelector('h2')
-    const p = document.querySelector('p')
+    const a = document.querySelector('button')
     const t1 = gsap.timeline()
 
     t1.from(content, { delay: .5, duration: 4, cssRule: { scaleX: 0 } })
     t1.to(h1, { duration: 2, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
     t1.to(img, { duration: 3, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
     t1.to(h2, { duration: 3, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
-    t1.to(p, { duration: 4, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=2')
+    t1.to(a, { duration: 4, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=2')
  
 
 

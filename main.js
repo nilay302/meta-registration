@@ -22,6 +22,9 @@ var pivot = new THREE.Object3D();
 
 
 scene.add(pivot)
+const loader = new THREE. TextureLoader();
+const bgTexture = loader. load('./space4.jpg');
+scene. background = bgTexture;
 // const stats = Stats()
 // document.body.appendChild(stats.dom)
 
@@ -29,6 +32,15 @@ scene.add(pivot)
 	var particleMat = new THREE.PointsMaterial({
 		color: 'rgb(255, 255, 255)',
 		size: 0.2,
+		map: new THREE.TextureLoader().load('./particle.jpg'),
+		transparent: true,
+		blending: THREE.AdditiveBlending,
+		depthWrite: false,
+		sizeAttenuation:true
+	});
+	var pMat = new THREE.PointsMaterial({
+		color: 'rgb(255, 255, 255)',
+		size: 0.3,
 		map: new THREE.TextureLoader().load('./particle.jpg'),
 		transparent: true,
 		blending: THREE.AdditiveBlending,
@@ -46,7 +58,7 @@ scene.add(pivot)
 	}
 	pG.setAttribute('position',new THREE.BufferAttribute(posArray,3));
 
-	var particleMesh = new THREE.Points(pG,particleMat);
+	var particleMesh = new THREE.Points(pG,pMat);
 	var particleSystem = new THREE.Points(
 		particleGeo,
 		particleMat
@@ -118,8 +130,8 @@ function animate() {
 	particleMesh.rotation.y -= 0.0001 * elapsedTime;
 
 	if(mouseX >0){
-		particleMesh.rotation.x = -mouseY * (elapsedTime*0.00005);
-		particleMesh.rotation.y = -mouseX * (elapsedTime*0.00005);
+		particleMesh.rotation.x = -mouseY * ((elapsedTime*0.00005)/2);
+		particleMesh.rotation.y = -mouseX * ((elapsedTime*0.00005)/2);
 		// particleSystem.rotation.y = -mouseX *(elapsedTime*0.00008)
 	}
 	gsap.to(camera.position, {
@@ -130,18 +142,7 @@ function animate() {
 		repeat: -1,
 		yoyo: true,
 	});
-	// let flg = 0;
-	// while(camera.position.z >= 15 && flg == 0){
-	// 	camera.position.z -= 0.01;
-	// 	camera.position.y -= 0.01
-	// }
 	
-	// if(camera.position.z == 15)flg = 1;
-	// if(camera.position.z<=30 && flg ==1){
-	// 	camera.position.z += 0.01;
-	// 	camera.position.y += 0.01
-	// }
-	// if(camera.position.z == 30)flg = 0;
 	
     render()
 	// stats.update()
