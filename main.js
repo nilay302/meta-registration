@@ -118,9 +118,9 @@ function animate() {
 	particleMesh.rotation.y -= 0.0001 * elapsedTime;
 
 	if(mouseX >0){
-		particleMesh.rotation.x = -mouseY * (elapsedTime*0.00008);
-		particleMesh.rotation.y = -mouseX * (elapsedTime*0.00008);
-		// particleSystem.rotation.y = -mouseX * (elapsedTime*0.00008)
+		particleMesh.rotation.x = -mouseY * (elapsedTime*0.00005);
+		particleMesh.rotation.y = -mouseX * (elapsedTime*0.00005);
+		// particleSystem.rotation.y = -mouseX *(elapsedTime*0.00008)
 	}
 	gsap.to(camera.position, {
 		duration: 8,
