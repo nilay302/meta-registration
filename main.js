@@ -124,10 +124,10 @@ const Clock = new THREE.Clock();
 function animate() {
     requestAnimationFrame(animate)
 	const elapsedTime = Clock.getElapsedTime()
-	particleSystem.rotation.y =( 0.09 * elapsedTime)*0.01;
-	particleSystem.rotation.x =( 0.09 * elapsedTime)*0.01;
+	particleSystem.rotation.y =( 0.05 * elapsedTime);
+	particleSystem.rotation.x =( 0.07 * elapsedTime);
 
-	particleMesh.rotation.y -= 0.0001 * elapsedTime;
+	particleMesh.rotation.y -= (0.0001 * elapsedTime)*0.1
 
 	if(mouseX >0){
 		particleMesh.rotation.x = -mouseY * ((elapsedTime*0.00002));
