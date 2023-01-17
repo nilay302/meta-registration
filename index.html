@@ -29,7 +29,8 @@
         <!-- <p>The "Metamorphosis" is an annual Mega-Event organized by the Walchand Linux Users' Group.</br>
           This year, event will feature sessions on Docker and Go Lang,</br>
            two popular technologies in the field of containerization and programming respectively.<br /> -->
-          <a style="text-decoration: none;" href="http://meta2k23.vercel.app"><button class="button-64" role="button"><span class="text">Register Now</span></button></a>
+           <p>Coming Soon...</p>
+          <!-- <a style="text-decoration: none;" href="http://meta2k23.vercel.app"><button class="button-64" role="button"><span class="text">Register Now</span></button></a> -->
         <!-- </p> -->
       </div>
       <div class="lorem">
@@ -61,12 +62,14 @@
     const h1 = document.querySelector('img')
     const h2 = document.querySelector('h2')
     const a = document.querySelector('button')
+    const p = document.querySelector('p')
     const t1 = gsap.timeline()
 
     t1.from(content, { delay: .5, duration: 4, cssRule: { scaleX: 0 } })
     t1.to(h1, { duration: 2, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
     t1.to(img, { duration: 3, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
     t1.to(h2, { duration: 3, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=3')
+    t1.to(p, { duration: 4, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=2')
     t1.to(a, { duration: 4, clipPath: 'polygon(0 0,100% 0,100% 100%, 0% 100%)', y: '30px' }, '-=2')
  
 

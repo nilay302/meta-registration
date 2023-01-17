@@ -130,7 +130,7 @@ h1{
 }
 
 .meta-logo{
-    margin-top: -8em;
+    margin-top: -8.4em;
         z-index: 5;
         height: 40rem;
         width: 40rem;
@@ -159,8 +159,8 @@ h2{
     clip-path: polygon(0 0,100% 0 ,100% 0, 0 0);
 }
 p{
-    font-size: 1.7rem;
-    width: 40vw;
+    font-size: 2.7rem;
+    /* width: 40vw; */
     font-family: 'Inconsolata', monospace;
     /* text-align: center; */
     /* align-items: center; */
@@ -261,7 +261,8 @@ p{
         width: 100%;
     }
     .meta-logo{
-        width: 23em;
+        width: 15rem;
+        height: 15rem;
     }
     .lorem{
         /* display: none; */

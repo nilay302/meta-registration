@@ -124,14 +124,14 @@ const Clock = new THREE.Clock();
 function animate() {
     requestAnimationFrame(animate)
 	const elapsedTime = Clock.getElapsedTime()
-	particleSystem.rotation.y = 0.09 * elapsedTime;
-	particleSystem.rotation.x =0.02 * elapsedTime;
+	particleSystem.rotation.y =( 0.09 * elapsedTime)*0.01;
+	particleSystem.rotation.x =( 0.09 * elapsedTime)*0.01;
 
 	particleMesh.rotation.y -= 0.0001 * elapsedTime;
 
 	if(mouseX >0){
-		particleMesh.rotation.x = -mouseY * ((elapsedTime*0.00005)/2);
-		particleMesh.rotation.y = -mouseX * ((elapsedTime*0.00005)/2);
+		particleMesh.rotation.x = -mouseY * ((elapsedTime*0.00002));
+		particleMesh.rotation.y = -mouseX * ((elapsedTime*0.00002));
 		// particleSystem.rotation.y = -mouseX *(elapsedTime*0.00008)
 	}
 	gsap.to(camera.position, {
