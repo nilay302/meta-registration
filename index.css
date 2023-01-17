@@ -97,7 +97,7 @@ html{
     .logo-wlug{
         top: 0;
         right: 0;
-        margin-top: -3rem;
+        margin-top: -2.6rem;
     }
     .morphosis{
         display: none;
@@ -106,7 +106,10 @@ html{
         display: none;
     }
     p{
-        width: 70vw !important;
+        width: 80vw !important;
+        text-align: center;
+        /* margin-top: 10rem; */
+        /* padding-top: 5rem; */
     }
 }
 .content:before{
@@ -130,7 +133,7 @@ h1{
 }
 
 .meta-logo{
-    margin-top: -8.4em;
+    margin-top: -8em;
         z-index: 5;
         height: 40rem;
         width: 40rem;
@@ -261,8 +264,8 @@ p{
         width: 100%;
     }
     .meta-logo{
-        width: 15rem;
-        height: 15rem;
+        width: 26rem;
+        /* height: 15rem; */
     }
     .lorem{
         /* display: none; */
